@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sanskrit Chatbot</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="chat-container">
+
+        <div class="chat-header">
+            <div class="om-symbol">ॐ</div>
+
+            <div>
+                <h1>Sanskrit Chatbot</h1>
+                <p>Your Sanskrit Learning Assistant</p>
+            </div>
+        </div>
+
+
+        <div class="chat-box" id="chatBox">
+
+            <div class="message bot-message">
+                <div class="avatar">ॐ</div>
+
+                <div class="message-content">
+                    <span class="sender">Sanskrit Bot</span>
+                    <p>
+                        नमस्ते! 🙏<br>
+                        Welcome to the Sanskrit Chatbot.<br>
+                        How can I help you?
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="suggestions">
+            <button onclick="sendSuggestion('नमस्ते')">
+                नमस्ते
+            </button>
+
+            <button onclick="sendSuggestion('What is Sanskrit')">
+                What is Sanskrit?
+            </button>
+
+            <button onclick="sendSuggestion('Thank you')">
+                Thank you
+            </button>
+        </div>
+
+
+        <div class="input-area">
+
+            <input
+                type="text"
+                id="messageInput"
+                placeholder="Type your message..."
+                autocomplete="off"
+            >
+
+            <button id="sendButton" onclick="sendMessage()">
+                Send
+            </button>
+
+        </div>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
