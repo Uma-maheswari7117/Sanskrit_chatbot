@@ -56,6 +56,18 @@ lessons = {
             }
         ]
     },
+"colors": {
+    "title": "Sanskrit Colors",
+    "description": "Learn common colors in Sanskrit.",
+    "content": [
+        {"sanskrit": "रक्तवर्णः", "english": "Red"},
+        {"sanskrit": "नीलवर्णः", "english": "Blue"},
+        {"sanskrit": "पीतवर्णः", "english": "Yellow"},
+        {"sanskrit": "हरितवर्णः", "english": "Green"},
+        {"sanskrit": "श्वेतवर्णः", "english": "White"},
+        {"sanskrit": "कृष्णवर्णः", "english": "Black"}
+    ]
+},
 
     "greetings": {
         "title": "Sanskrit Greetings",
