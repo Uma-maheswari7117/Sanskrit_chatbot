@@ -1,71 +1,379 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Sanskrit Chatbot</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Sanskrit Learning Chatbot</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
 </head>
 
 <body>
 
+<header>
+
+    <div class="logo">
+        संस्कृतम्
+        <span>Sanskrit Learning</span>
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#learn">Learn</a>
+        <a href="#quiz">Quiz</a>
+        <a href="#chat">Chat</a>
+    </nav>
+
+</header>
+
+
+<main>
+
+<section id="home" class="hero">
+
+    <div class="hero-text">
+
+        <p class="tag">LEARN • PRACTICE • MASTER</p>
+
+        <h1>
+            Learn Sanskrit
+            <span>Step by Step</span>
+        </h1>
+
+        <p>
+            Learn Sanskrit vocabulary, grammar, sentences
+            and basic concepts through interactive lessons
+            and quizzes.
+        </p>
+
+        <div class="hero-buttons">
+
+            <button onclick="showSection('learn')">
+                Start Learning
+            </button>
+
+            <button class="secondary"
+                    onclick="showSection('quiz')">
+                Take Quiz
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="hero-card">
+
+        <div class="sanskrit-big">
+            नमस्ते
+        </div>
+
+        <p>Namaste</p>
+
+        <span>Hello / Greetings</span>
+
+    </div>
+
+</section>
+
+
+<section id="learn" class="section">
+
+    <div class="section-title">
+
+        <p class="tag">LESSONS</p>
+
+        <h2>Choose a Lesson</h2>
+
+        <p>
+            Start with basic Sanskrit concepts and
+            gradually improve your knowledge.
+        </p>
+
+    </div>
+
+
+    <div class="lesson-grid">
+
+        <div class="lesson-card"
+             onclick="loadLesson('alphabet')">
+
+            <div class="icon">अ</div>
+
+            <h3>Alphabet</h3>
+
+            <p>
+                Learn basic Sanskrit vowels
+                and consonants.
+            </p>
+
+            <button>Learn →</button>
+
+        </div>
+
+
+        <div class="lesson-card"
+             onclick="loadLesson('greetings')">
+
+            <div class="icon">न</div>
+
+            <h3>Greetings</h3>
+
+            <p>
+                Learn common Sanskrit greetings
+                and expressions.
+            </p>
+
+            <button>Learn →</button>
+
+        </div>
+
+
+        <div class="lesson-card"
+             onclick="loadLesson('numbers')">
+
+            <div class="icon">१</div>
+
+            <h3>Numbers</h3>
+
+            <p>
+                Learn Sanskrit numbers from
+                one to ten.
+            </p>
+
+            <button>Learn →</button>
+
+        </div>
+
+
+        <div class="lesson-card"
+             onclick="loadLesson('pronouns')">
+
+            <div class="icon">अ</div>
+
+            <h3>Pronouns</h3>
+
+            <p>
+                Learn basic Sanskrit pronouns
+                and their meanings.
+            </p>
+
+            <button>Learn →</button>
+
+        </div>
+
+
+        <div class="lesson-card"
+             onclick="loadLesson('vocabulary')">
+
+            <div class="icon">श</div>
+
+            <h3>Vocabulary</h3>
+
+            <p>
+                Learn useful Sanskrit words
+                for everyday learning.
+            </p>
+
+            <button>Learn →</button>
+
+        </div>
+
+
+        <div class="lesson-card"
+             onclick="loadLesson('grammar')">
+
+            <div class="icon">वि</div>
+
+            <h3>Grammar</h3>
+
+            <p>
+                Understand basic Sanskrit
+                sentence structure.
+            </p>
+
+            <button>Learn →</button>
+
+        </div>
+
+
+        <div class="lesson-card"
+             onclick="loadLesson('sentences')">
+
+            <div class="icon">वा</div>
+
+            <h3>Sentences</h3>
+
+            <p>
+                Practice simple Sanskrit
+                sentences.
+            </p>
+
+            <button>Learn →</button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section id="lesson-view" class="lesson-view hidden">
+
+    <button class="back-button"
+            onclick="closeLesson()">
+        ← Back to Lessons
+    </button>
+
+    <div id="lesson-content"></div>
+
+</section>
+
+
+<section id="quiz" class="section quiz-section">
+
+    <div class="section-title">
+
+        <p class="tag">PRACTICE</p>
+
+        <h2>Test Your Sanskrit</h2>
+
+        <p>
+            Answer the questions and check
+            your Sanskrit knowledge.
+        </p>
+
+    </div>
+
+
+    <div class="quiz-container">
+
+        <div id="quiz-start">
+
+            <div class="quiz-icon">?</div>
+
+            <h3>Sanskrit Beginner Quiz</h3>
+
+            <p>
+                10 questions covering vocabulary,
+                numbers, greetings and grammar.
+            </p>
+
+            <button onclick="startQuiz()">
+                Start Quiz
+            </button>
+
+        </div>
+
+
+        <div id="quiz-question"
+             class="hidden">
+
+            <div class="quiz-progress">
+
+                <span id="question-number">
+                    Question 1
+                </span>
+
+                <span id="score-display">
+                    Score: 0
+                </span>
+
+            </div>
+
+            <div class="progress-bar">
+
+                <div id="progress"
+                     class="progress">
+                </div>
+
+            </div>
+
+            <h3 id="question-text"></h3>
+
+            <div id="options"></div>
+
+            <button id="next-button"
+                    class="hidden"
+                    onclick="nextQuestion()">
+                Next Question →
+            </button>
+
+        </div>
+
+
+        <div id="quiz-result"
+             class="hidden">
+
+            <div class="result-icon">
+                ✓
+            </div>
+
+            <h2>Quiz Completed!</h2>
+
+            <p id="final-score"></p>
+
+            <p id="result-message"></p>
+
+            <button onclick="startQuiz()">
+                Try Again
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section id="chat" class="section">
+
+    <div class="section-title">
+
+        <p class="tag">CHAT</p>
+
+        <h2>Ask the Sanskrit Chatbot</h2>
+
+        <p>
+            Ask simple questions about Sanskrit.
+        </p>
+
+    </div>
+
+
     <div class="chat-container">
 
-        <div class="chat-header">
-            <div class="om-symbol">ॐ</div>
+        <div id="chat-box">
 
-            <div>
-                <h1>Sanskrit Chatbot</h1>
-                <p>Your Sanskrit Learning Assistant</p>
-            </div>
-        </div>
+            <div class="message bot">
+                <strong>Sanskrit Bot</strong>
 
+                <p>
+                    नमस्ते! Welcome to the Sanskrit
+                    Learning Chatbot. How can I help you?
+                </p>
 
-        <div class="chat-box" id="chatBox">
-
-            <div class="message bot-message">
-                <div class="avatar">ॐ</div>
-
-                <div class="message-content">
-                    <span class="sender">Sanskrit Bot</span>
-                    <p>
-                        नमस्ते! 🙏<br>
-                        Welcome to the Sanskrit Chatbot.<br>
-                        How can I help you?
-                    </p>
-                </div>
             </div>
 
         </div>
 
 
-        <div class="suggestions">
-            <button onclick="sendSuggestion('नमस्ते')">
-                नमस्ते
-            </button>
-
-            <button onclick="sendSuggestion('What is Sanskrit')">
-                What is Sanskrit?
-            </button>
-
-            <button onclick="sendSuggestion('Thank you')">
-                Thank you
-            </button>
-        </div>
-
-
-        <div class="input-area">
+        <div class="chat-input">
 
             <input
                 type="text"
-                id="messageInput"
-                placeholder="Type your message..."
-                autocomplete="off"
+                id="chat-message"
+                placeholder="Ask something about Sanskrit..."
+                onkeypress="handleEnter(event)"
             >
 
-            <button id="sendButton" onclick="sendMessage()">
+            <button onclick="sendMessage()">
                 Send
             </button>
 
@@ -73,7 +381,28 @@
 
     </div>
 
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</section>
+
+</main>
+
+
+<footer>
+
+    <h3>संस्कृतम्</h3>
+
+    <p>
+        Sanskrit Learning & Quiz Chatbot
+    </p>
+
+    <p class="copyright">
+        Developed as a Continuous Integration project
+    </p>
+
+</footer>
+
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
 
 </body>
+
 </html>
