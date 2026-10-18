@@ -65,7 +65,8 @@ lessons = {
         {"sanskrit": "पीतवर्णः", "english": "Yellow"},
         {"sanskrit": "हरितवर्णः", "english": "Green"},
         {"sanskrit": "श्वेतवर्णः", "english": "White"},
-        {"sanskrit": "कृष्णवर्णः", "english": "Black"}
+        {"sanskrit": "कृष्णवर्णः", "english": "Black"},
+{"sanskrit": "नारङ्गवर्णः", "english": "Orange"}
     ]
 },
 
