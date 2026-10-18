@@ -27,11 +27,15 @@ pipeline {
         }
 
         stage('Docker Build') {
-            steps {
-                echo 'Building Docker image...'
-                sh 'docker build -t sanskrit-chatbot:latest .'
-            }
-        }
+    steps {
+        echo 'Building Docker image...'
+        sh '''
+            export PATH="/Applications/Docker.app/Contents/Resources/bin:$PATH"
+            docker --version
+            docker build -t sanskrit-chatbot:latest .
+        '''
+    }
+}
 
         stage('Result') {
             steps {
